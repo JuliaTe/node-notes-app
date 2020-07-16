@@ -42,6 +42,7 @@
 // }
 
 const fs = require('fs')
+const chalk = require('chalk')
 
 const getNotes = function () {
     return 'Your notes...'
@@ -74,10 +75,10 @@ const removeNote = function (title) {
   const notes = loadNotes();
   const filtered = notes.filter(note => note.title !== title)
   if (filtered.length == notes.length) {
-    console.log("Note you tried to delete doesn't exist")
+    console.log(chalk.red.inverse("Note you tried to delete doesn't exist"))
   } else {
     saveNotes(filtered)
-    console.log(`Note ${title} has been deleted`)
+    console.log(chalk.green.inverse(`Note ${title} has been deleted`))
     console.log(filtered)
   }
 }
