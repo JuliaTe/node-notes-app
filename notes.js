@@ -71,7 +71,15 @@ const saveNotes = function (notes) {
 }
 
 const removeNote = function (title) {
-  console.log(`Removed title: ${title}`)
+  const notes = loadNotes();
+  const filtered = notes.filter(note => note.title !== title)
+  if (filtered.length == notes.length) {
+    console.log("Note you tried to delete doesn't exist")
+  } else {
+    saveNotes(filtered)
+    console.log(`Note ${title} has been deleted`)
+    console.log(filtered)
+  }
 }
 
 const loadNotes = function () {
