@@ -24,12 +24,13 @@ const removeNote = (title) => {
     console.log(chalk.red.inverse("Note you tried to delete doesn't exist"))
   } else {
     saveNotes(filtered)
-    console.log(chalk.green.inverse(`Note ${title} has been deleted`))
+    console.log(chalk.yellow.inverse(`Note ${title} has been deleted`))
     console.log(filtered)
   }
 }
 
 const listNotes = () => {
+  debugger
   const notes = loadNotes();
   notes.forEach(note => console.log(`${chalk.yellow.inverse(note.title)} ${chalk.green.inverse(note.body)}`))
 }
